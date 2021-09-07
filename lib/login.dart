@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:soc_project/services/networking.dart';
 import 'package:soc_project/utils/constants.dart';
 
@@ -33,108 +34,117 @@ class LoginScreen extends StatelessWidget {
           child: Form(
             key: _formKey,
             autovalidateMode: AutovalidateMode.onUserInteraction,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                RoundedInputField(
-                  validator: (value)
-                  {
-                    if(value == null || value.isEmpty)
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    height: 150.0,
+                    child: SvgPicture.asset(
+                      'assets/credit.svg',
+                    ),
+                  ),
+                  SizedBox(height: 50.0,),
+                  RoundedInputField(
+                    validator: (value)
                     {
-                      return "Please enter username";
-                    }
-                    return null;
-                  },
-                  hintText: "Username",
-                  onChanged: (value) {
-                    _username = value;
-                  },
-                ),
-                RoundedPasswordField(
-                  validator: (value)
-                  {
-                    if(value == null || value.isEmpty)
+                      if(value == null || value.isEmpty)
+                      {
+                        return "Please enter username";
+                      }
+                      return null;
+                    },
+                    hintText: "Username",
+                    onChanged: (value) {
+                      _username = value;
+                    },
+                  ),
+                  RoundedPasswordField(
+                    validator: (value)
                     {
-                      return "Please enter password";
-                    }
-                    return null;
-                  },
-                  onChanged: (value) {
-                    _password = value;
-                  },
-                ),
-                RoundedButton(
-                  text: "LOGIN",
-                  onPressed: () async {
+                      if(value == null || value.isEmpty)
+                      {
+                        return "Please enter password";
+                      }
+                      return null;
+                    },
+                    onChanged: (value) {
+                      _password = value;
+                    },
+                  ),
+                  RoundedButton(
+                    text: "LOGIN",
+                    onPressed: () async {
 
-                    if(_formKey.currentState!.validate())
-                    {
-                      showDialog<String>(
-                        context: context,
-                        builder: (BuildContext context) => AlertDialog(
-                          content: FutureBuilder(
-                            future: loginTask({
-                              "username": _username,
-                              "password":_password,
-                            }),
-                            builder: (BuildContext context,AsyncSnapshot snapshot){
-                              List<Widget> children;
-                              if(snapshot.hasData){
+                      if(_formKey.currentState!.validate())
+                      {
+                        showDialog<String>(
+                          context: context,
+                          builder: (BuildContext context) => AlertDialog(
+                            content: FutureBuilder(
+                              future: loginTask({
+                                "username": _username,
+                                "password":_password,
+                              }),
+                              builder: (BuildContext context,AsyncSnapshot snapshot){
+                                List<Widget> children;
+                                if(snapshot.hasData){
 
-                                if(snapshot.data['status'] == 500)
-                                {
-                                  children = <Widget>[
-                                    Text(snapshot.data['message']),
-                                  ];
-                                }else{
-                                  children = <Widget>[
-                                    Text('Login Successful'),
-                                  ];
+                                  if(snapshot.data['status'] == 500)
+                                  {
+                                    children = <Widget>[
+                                      Text(snapshot.data['message']),
+                                    ];
+                                  }else{
+                                    children = <Widget>[
+                                      Text('Login Successful'),
+                                    ];
 
-                                  Future.delayed(Duration(milliseconds: 100), () {
-                                    Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
-                                        HomeScreen(snapshot.data)), (Route<dynamic> route) => false);
-                                  });
+                                    Future.delayed(Duration(milliseconds: 100), () {
+                                      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
+                                          HomeScreen(snapshot.data)), (Route<dynamic> route) => false);
+                                    });
+
+                                  }
 
                                 }
+                                else{
+                                  children = <Widget>[
+                                    SpinKitRotatingCircle(
+                                      color: kPrimaryColor,
+                                      size: 50.0,
+                                    ),
+                                    SizedBox(height: 5.0,),
+                                    Text('Please wait...'),
+                                  ];
+                                }
+                                return Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: children,
+                                );
+                              },
+                            ),
 
-                              }
-                              else{
-                                children = <Widget>[
-                                  SpinKitRotatingCircle(
-                                    color: kPrimaryColor,
-                                    size: 50.0,
-                                  ),
-                                  SizedBox(height: 5.0,),
-                                  Text('Please wait...'),
-                                ];
-                              }
-                              return Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: children,
-                              );
-                            },
                           ),
-
-                        ),
-                      );
-                    }
-                  },
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('dont have an account ?'),
-                    SizedBox(width: 5,),
-                    GestureDetector(
-                        child: Text('Create'),
-                      onTap: (){
-                          Navigator.pushNamed(context, PageId.signup);
-                      },
-                    ),
-                  ],
-                ),
-              ],
+                        );
+                      }
+                    },
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('dont have an account ?'),
+                      SizedBox(width: 5,),
+                      GestureDetector(
+                          child: Text('Create'),
+                        onTap: (){
+                            Navigator.pushNamed(context, PageId.signup);
+                        },
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),

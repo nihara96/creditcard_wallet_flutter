@@ -90,7 +90,7 @@ class MyCreditCard extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('BRANCH'),
+                              Text('EXP'),
                               Text(branch,style: TextStyle(
                                 fontSize: 20.0,
                               ),),

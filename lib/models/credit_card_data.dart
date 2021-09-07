@@ -8,13 +8,13 @@ class CreditCardData extends ChangeNotifier {
 
   List<CreditCard> _cards = [
     CreditCard(
-      cardNumber: "123456789",
+      cardNumber: "1234567892364125",
       cvv: "023",
       scheme: "Visa",
       type: "Debit",
       bank: "Sampath Bank",
       bankEmoji: "🇩🇰",
-      branch: "Kandy",
+      branch: "03/25",
     ),
 
   ];
