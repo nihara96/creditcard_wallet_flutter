@@ -103,6 +103,8 @@ class LoginScreen extends StatelessWidget {
                                     Future.delayed(Duration(milliseconds: 100), () {
                                       Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
                                           HomeScreen(snapshot.data)), (Route<dynamic> route) => false);
+
+
                                     });
 
                                   }

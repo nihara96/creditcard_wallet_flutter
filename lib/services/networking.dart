@@ -49,7 +49,7 @@ class NetworkHelper{
     var data = await postRequest(body:params, uri: uri);
 
     // Build credit card and add to the list;
-    // Provider.of<CreditCardData>(context,listen: false).clearCardList();
+     Provider.of<CreditCardData>(context,listen: false).clearCardList();
 
     for(Map map in data)
     {
@@ -88,6 +88,7 @@ class NetworkHelper{
 
 
   Future addCardToNetwork( Map<String,dynamic> params,CreditCard creditCard) async {
+
     await postRequest(body: {
       "cardNumber":creditCard.cardNumber,
       "cvv":creditCard.cvv,
@@ -100,10 +101,7 @@ class NetworkHelper{
 
     await assignUserToCard(params,creditCard.cardNumber);
   }
-
-
 }
-
 
 class Service{
   static const String MAIN_URL = "192.168.8.156:8080";

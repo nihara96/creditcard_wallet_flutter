@@ -130,31 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             try{
                                               _bank = data['bank']['name'];
                                             }catch(e){
-
-                                              await showDialog(
-                                                  context: context,
-                                                  builder: (context){
-                                                    return AlertDialog(
-                                                      title: Text('Enter Bank Name'),
-                                                      content: TextField(
-                                                        onChanged: (value)
-                                                        {
-                                                          _bank = value;
-
-                                                        },
-                                                      ),
-                                                      actions: [
-                                                        RoundedButton(
-                                                            text: "OK",
-                                                            onPressed: (){
-                                                              if(_bank.isEmpty){_bank="-";}
-                                                              Navigator.of(context, rootNavigator: true).pop();
-                                                            })
-                                                      ],
-                                                    );
-                                                  }
-                                              );
-
+                                              //TODO: Implement bank api
                                               setState(() {
 
                                               });
@@ -193,14 +169,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: kPrimaryColor,
         title: Text('CreditCard Wallet'),
-        actions: [
-          IconButton(
-              onPressed: (){
-                Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
-                    LoginScreen()), (Route<dynamic> route) => false);
-              },
-              icon: Icon(IconData(0xe3b3, fontFamily: 'MaterialIcons')))
-        ],
+        //TODO: Implement sign out
       ),
       body: Container(
        child: Padding(
