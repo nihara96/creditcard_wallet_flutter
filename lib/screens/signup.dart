@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:soc_project/home.dart';
+import 'package:soc_project/screens/home.dart';
 import 'package:soc_project/services/networking.dart';
 import 'package:soc_project/utils/constants.dart';
 
-import 'components/rounded_button.dart';
-import 'components/rounded_input_field.dart';
-import 'components/rounded_password_field.dart';
+import '../components/rounded_button.dart';
+import '../components/rounded_input_field.dart';
+import '../components/rounded_password_field.dart';
 import 'login.dart';
 
 class SignUpScreen extends StatelessWidget {

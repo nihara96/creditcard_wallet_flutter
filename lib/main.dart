@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:soc_project/home.dart';
-import 'package:soc_project/login.dart';
+import 'package:soc_project/screens/home.dart';
+import 'package:soc_project/screens/login.dart';
 import 'package:soc_project/models/credit_card_data.dart';
-import 'package:soc_project/signup.dart';
+import 'package:soc_project/screens/signup.dart';
 import 'package:soc_project/utils/constants.dart';
 
 void main() {
@@ -16,7 +16,6 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
         create: (BuildContext context)=> CreditCardData(),
       child:  MaterialApp(
-
         initialRoute: PageId.login,
 
         routes: {

@@ -5,9 +5,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:soc_project/services/networking.dart';
 import 'package:soc_project/utils/constants.dart';
 
-import 'components/rounded_button.dart';
-import 'components/rounded_input_field.dart';
-import 'components/rounded_password_field.dart';
+import '../components/rounded_button.dart';
+import '../components/rounded_input_field.dart';
+import '../components/rounded_password_field.dart';
 import 'home.dart';
 
 class LoginScreen extends StatelessWidget {
