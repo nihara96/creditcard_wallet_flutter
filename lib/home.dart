@@ -130,7 +130,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                             try{
                                               _bank = data['bank']['name'];
                                             }catch(e){
-                                              //TODO: Implement bank api
                                               setState(() {
 
                                               });
