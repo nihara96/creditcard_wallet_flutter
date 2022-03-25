@@ -44,7 +44,7 @@ class NetworkHelper{
 
   Future<dynamic> getCards(Map<String,dynamic> params,BuildContext context) async {
 
-    final uri = Uri.http(Service.MAIN_URL, "/api/v1/cards/user/");
+    final uri = Uri.https(Service.MAIN_URL, "/api/v1/cards/user/");
 
     var data = await postRequest(body:params, uri: uri);
 
@@ -82,7 +82,7 @@ class NetworkHelper{
 
   Future assignUserToCard(Map<String,dynamic> params,String cardNumber) async{
 
-    return putRequest(body: params, uri: Uri.http(Service.MAIN_URL, "/api/v1/cards/$cardNumber/appUser/"));
+    return putRequest(body: params, uri: Uri.https(Service.MAIN_URL, "/api/v1/cards/$cardNumber/appUser/"));
 
   }
 
@@ -97,13 +97,16 @@ class NetworkHelper{
       "bank":creditCard.bank,
       "bankEmoji":creditCard.bankEmoji,
       "branch":creditCard.branch
-    }, uri: Uri.http(Service.MAIN_URL, "/api/v1/cards/"));
+    }, uri: Uri.https(Service.MAIN_URL, "/api/v1/cards/"));
 
     await assignUserToCard(params,creditCard.cardNumber);
   }
 }
 
 class Service{
-  static const String MAIN_URL = "192.168.8.156:8080";
+  // static const String MAIN_URL = "192.168.8.100:8080";
+  static const String MAIN_URL = "creditcard-wallet.herokuapp.com";
   static const String BINLIST_URL = "lookup.binlist.net";
+
+  //https://creditcard-wallet.herokuapp.com/
 }
