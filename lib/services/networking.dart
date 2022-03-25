@@ -104,6 +104,9 @@ class NetworkHelper{
 }
 
 class Service{
-  static const String MAIN_URL = "192.168.8.100:8080";
+  // static const String MAIN_URL = "192.168.8.100:8080";
+  static const String MAIN_URL = "creditcard-wallet.herokuapp.com";
   static const String BINLIST_URL = "lookup.binlist.net";
+
+  //https://creditcard-wallet.herokuapp.com/
 }
