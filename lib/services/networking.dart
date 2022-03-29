@@ -101,12 +101,15 @@ class NetworkHelper{
 
     await assignUserToCard(params,creditCard.cardNumber);
   }
+
 }
 
 class Service{
   // static const String MAIN_URL = "192.168.8.100:8080";
+  static const String BANK_MAIN = '192.168.8.156:8082';
   static const String MAIN_URL = "creditcard-wallet.herokuapp.com";
   static const String BINLIST_URL = "lookup.binlist.net";
+  static const String BANKS = '/api/v1/banks';
 
   //https://creditcard-wallet.herokuapp.com/
 }
