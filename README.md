@@ -13,7 +13,7 @@ flutter run
 
 ## ScreenShot
 
-<img src="assets/images/img1.jpg" height="500em" />&nbsp;<img src="assets/images/img2.jpg" height="500em" />
+<img src="assets/images/img1.jpg" height="400em" />&nbsp;<img src="assets/images/img2.jpg" height="400em" /><img src="assets/images/img3.jpg" height="400em" />
 
 ## Links
 
