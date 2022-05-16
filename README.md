@@ -1,4 +1,4 @@
-## Flutter Credit Card Wallet
+## Flutter Springboot Credit Card Wallet
 
 Save Credit/Debit cards 
 
@@ -17,7 +17,5 @@ flutter run
 
 ## Links
 
-* [Website](https://afgprogrammer.com)
-* [Youtube channel](https://youtube.com/afgprogrammer)
-* [Twitter](https://twitter.com/afgprogrammer)
-* [Instagram](https://instagram.com/afgprogrammer)
+* [Backend](https://github.com/nihara96/creditcard_wallet_backend.git)
+
